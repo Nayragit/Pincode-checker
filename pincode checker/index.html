@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Pincode checker</title>
+</head>
+
+<body>
+    <div class="pincode-checker__container">
+        <header class="pincode-checker__header">
+            <svg class="pincode-checker__header-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                <path
+                    d="M10 12.796V3.204L4.519 8zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753" />
+            </svg>
+        </header>
+
+        <main class="pincode-checker__main">
+            <div class="pincode-checker-main__text">
+                <div class="pincode-checker-main__subheading">
+                    Check availability
+                </div>
+                <h2 class="pincode-checker-main__heading">
+                    Your PIN code
+                </h2>
+                <div class="pincode-checker-main__progress-bar">
+
+                    <div class="progress-bar-label" id="progressStep">
+                        <span>1</span> of 2
+                    </div>
+                    <div class="progress-bar-container">
+
+                        <div class="step active" id="step1"></div>
+                        <div class="step" id="step2"></div>
+                    </div>
+                    <div class="pincode-checker-main__description">
+                        To check delivery status enter your 6 digit pincode
+                    </div>
+                </div>
+            </div>
+            <div class="pincode-checker-main__form">
+                <form id="pincodeForm">
+                    <div class="input-container">
+                        <label for="pincode">New Pincode:</label>
+                        <div>
+                            <input type="text" class="input-box" maxlength="1" id="pincode1"
+                                onkeyup="moveFocus(this, 'pincode2', null)">
+                            <input type="text" class="input-box" maxlength="1" id="pincode2"
+                                onkeyup="moveFocus(this, 'pincode3', 'pincode1')">
+                            <input type="text" class="input-box" maxlength="1" id="pincode3"
+                                onkeyup="moveFocus(this, 'pincode4', 'pincode2')">
+                            <input type="text" class="input-box" maxlength="1" id="pincode4"
+                                onkeyup="moveFocus(this, 'pincode5', 'pincode3')">
+                            <input type="text" class="input-box" maxlength="1" id="pincode5"
+                                onkeyup="moveFocus(this, 'pincode6', 'pincode4')">
+                            <input type="text" class="input-box" maxlength="1" id="pincode6"
+                                onkeyup="moveFocus(this, null, 'pincode5')">
+                        </div>
+                    </div>
+                    <div class="text">
+                        <label for="confirm_pincode">Confirm Pincode:</label>
+                        <div>
+                            <input type="password" class="input-box" maxlength="1" id="confirm_pincode1"
+                                onkeyup="moveFocus(this, 'confirm_pincode2', null)">
+                            <input type="password" class="input-box" maxlength="1" id="confirm_pincode2"
+                                onkeyup="moveFocus(this, 'confirm_pincode3', 'confirm_pincode1')">
+                            <input type="password" class="input-box" maxlength="1" id="confirm_pincode3"
+                                onkeyup="moveFocus(this, 'confirm_pincode4', 'confirm_pincode2')">
+                            <input type="password" class="input-box" maxlength="1" id="confirm_pincode4"
+                                onkeyup="moveFocus(this, 'confirm_pincode5', 'confirm_pincode3')">
+                            <input type="password" class="input-box" maxlength="1" id="confirm_pincode5"
+                                onkeyup="moveFocus(this, 'confirm_pincode6', 'confirm_pincode4')">
+                            <input type="password" class="input-box" maxlength="1" id="confirm_pincode6"
+                                onkeyup="moveFocus(this, null, 'confirm_pincode5')">
+                        </div>
+                    </div>
+                    <div class="response-container hidden" id="responseMessage"></div>
+                        <input type="button" value="Check delivery" onclick="handleSubmit()" id="btn">  
+                </form>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
